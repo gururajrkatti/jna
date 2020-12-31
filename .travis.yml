@@ -14,8 +14,9 @@ before_install:
       echo "Not running CI since only docs were changed."
       travis_terminate 0
     fi
-  - sudo apt-get -m install openjdk-11-jdk libltdl-dev;
+ 
   - if ["$TRAVIS_CPU_ARCH" = "arm64"]; then
+     sudo apt-get -m install openjdk-11-jdk libltdl-dev;
      export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64;
      export PATH=$JAVA_HOME/bin:$PATH; 
     fi
