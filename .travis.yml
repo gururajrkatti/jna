@@ -15,11 +15,12 @@ before_install:
       travis_terminate 0
     fi
  
-  - if ["$TRAVIS_CPU_ARCH" = "arm64"]; then
-     sudo apt-get -m install openjdk-11-jdk libltdl-dev;
+  - if [ "$TRAVIS_CPU_ARCH" = "arm64" ]; then
+     sudo apt-get -m install openjdk-11-jdk;
      export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64;
      export PATH=$JAVA_HOME/bin:$PATH; 
     fi
+  - sudo apt-get -m install libltdl-dev;
 
 install:
   - export APACHE_ANT_BASE=$(curl http://apache.mirror.iphh.net/ant/binaries/ | grep "apache-ant-1.9..*-bin.tar.gz" | tail -1 | sed  's/.*href="\(.*\)-bin.tar.gz".*/\1/g')
