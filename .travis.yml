@@ -36,3 +36,4 @@ jobs:
       arch: arm64
     - name: "Linux JDK11 ppc64le"
       arch: ppc64le
+      dist: xenial
